@@ -1,0 +1,6 @@
+[build]
+  publish = "build"
+  command = "CI=false npm run build"
+
+[build.environment]
+  REACT_APP_API_URL = "https://car-rental-backendv-production.up.railway.app/api"
