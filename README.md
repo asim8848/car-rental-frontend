@@ -1,24 +1,26 @@
-# Car Rental Frontend - React Application
+# Car Rental Frontend
 
-This is the frontend React application for the Car Rental Web Application.
+React-based frontend for the Car Rental System built with modern web technologies.
 
 ## 🚀 Live Demo
-[Add Netlify URL here after deployment]
+**Frontend URL:** [https://car-rental-frontend-asim.netlify.app](https://car-rental-frontend-asim.netlify.app)
 
 ## 📋 Features
-- Responsive design for all devices
-- User authentication (login/register)
-- Car browsing with filters
-- Shopping cart functionality
-- Booking system
-- Modern React with hooks
+- **Modern React Interface** - Built with React 18 and hooks
+- **Responsive Design** - Mobile-first approach with CSS Grid/Flexbox
+- **User Authentication** - Login/Register with JWT tokens
+- **Car Browsing** - Search and filter vehicles by category, price
+- **Booking System** - Date selection and reservation management
+- **Shopping Cart** - Add multiple cars before checkout
+- **Real-time Updates** - Dynamic data from backend API
+- **Toast Notifications** - User feedback for all actions
 
-## 🛠️ Technologies Used
-- React 18
-- React Router DOM
-- Axios for API calls
-- CSS3 with responsive design
-- React Context for state management
+## 🛠 Tech Stack
+- **React 18** - Component-based UI library
+- **React Router DOM** - Client-side routing
+- **Axios** - HTTP client for API calls
+- **React Toastify** - Toast notification system
+- **CSS3** - Custom styling with modern features
 
 ## 🔧 Local Development
 

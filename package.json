@@ -1,6 +1,14 @@
 {
-  "name": "car-rental-client",
-  "version": "0.1.0",
+  "name": "car-rental-frontend",
+  "version": "1.0.0",
+  "description": "React frontend for Car Rental System",
+  "author": "Asim Ahmed",
+  "license": "MIT",
+  "homepage": "https://car-rental-frontend-asim.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/car-rental-frontend.git"
+  },
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
