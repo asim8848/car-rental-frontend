@@ -1,0 +1,53 @@
+<!-- This is a placeholder file for the images directory -->
+<!-- 
+IMAGE REQUIREMENTS FOR CAR RENTAL WEBSITE:
+
+HERO/BACKGROUND IMAGES:
+- hero-bg.jpg (1920x1080px) - Background image for hero section
+
+CAR IMAGES:
+- toyota-camry.jpg (300x200px) - Toyota Camry 2024
+- honda-cr-v.jpg (300x200px) - Honda CR-V 2024
+- tesla-model-3.jpg (300x200px) - Tesla Model 3 2024
+- bmw-x5.jpg (300x200px) - BMW X5 2024
+- ford-mustang.jpg (300x200px) - Ford Mustang 2024
+- hyundai-elantra.jpg (300x200px) - Hyundai Elantra 2024
+- jeep-wrangler.jpg (300x200px) - Jeep Wrangler 2024
+- audi-a4.jpg (300x200px) - Audi A4 2024
+- nissan-leaf.jpg (300x200px) - Nissan Leaf 2024
+- chevrolet-tahoe.jpg (300x200px) - Chevrolet Tahoe 2024
+
+CAR DETAIL IMAGES:
+- toyota-camry-detail.jpg (600x400px) - Detailed Toyota Camry image
+- honda-cr-v-detail.jpg (600x400px) - Detailed Honda CR-V image
+- tesla-model-3-detail.jpg (600x400px) - Detailed Tesla Model 3 image
+(... and so on for each car)
+
+BLOG IMAGES:
+- road-trip-tips.jpg (400x200px) - Road trip and travel image
+- electric-cars.jpg (400x200px) - Electric vehicle image
+- car-maintenance.jpg (400x200px) - Car maintenance and insurance image
+- luxury-cars.jpg (400x200px) - Luxury car image
+- budget-travel.jpg (400x200px) - Budget-friendly travel image
+- car-technology.jpg (400x200px) - Modern car technology image
+
+SIMILAR CAR IMAGES:
+- similar-car-1.jpg (300x200px) - Alternative car option 1
+- similar-car-2.jpg (300x200px) - Alternative car option 2
+- similar-car-3.jpg (300x200px) - Alternative car option 3
+
+LOGO:
+- logo.png (150x50px) - Company logo for navigation
+
+NOTES:
+- All images should be optimized for web (compressed but high quality)
+- Use consistent styling and lighting across car images
+- Ensure images are professional and match the premium brand feel
+- Consider using royalty-free stock photos or custom photography
+- Add alt text for accessibility when implementing images
+-->
+
+RentaCar Image Assets Directory
+
+This directory should contain all the images used throughout the website.
+Please refer to the comments above for specific image requirements and dimensions.

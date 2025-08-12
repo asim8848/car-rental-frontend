@@ -1,0 +1,11 @@
+/* Layout Styles */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  flex: 1;
+  min-height: calc(100vh - 80px); /* Account for navbar height */
+}

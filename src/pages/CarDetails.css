@@ -1,0 +1,43 @@
+/* Car Details Page Styles (React adaptation) */
+:root {--warm-orange:#EB5E28;--primary-blue:#0056b3;--primary-blue-dark:#004494;--charcoal:#333;--dark-gray:#666;--light-gray:#f8f9fa;--border-gray:#dee2e6;--white:#fff}
+.car-breadcrumb {margin-top:92px;margin-bottom:1.5rem;color:var(--dark-gray);font-size:.85rem;line-height:1.2}
+.car-breadcrumb a {color:var(--primary-blue);text-decoration:none;transition:.3s}
+.car-breadcrumb a:hover {color:var(--warm-orange)}
+.car-details-container {display:grid;grid-template-columns:minmax(0,540px) minmax(0,1fr);gap:2.4rem;align-items:start;padding:0 .5rem}
+@media (max-width:1100px){.car-details-container{grid-template-columns:1fr}}
+.car-details-image {width:100%;height:360px;border-radius:20px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.09);background:#e7f3ff center/cover no-repeat;position:relative;margin:0 0 1.25rem}
+.car-details-info {padding:.25rem 1.25rem 2rem;display:flex;flex-direction:column;gap:1.1rem;background:var(--white);border-radius:28px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.car-details-title {font-size:2.55rem;margin:0 0 .35rem;font-weight:800;color:var(--charcoal);line-height:1.05}
+.car-details-price {font-size:1.25rem;font-weight:700;color:var(--primary-blue);margin:0 0 .25rem}
+.car-specs {list-style:none;margin:.25rem 0 1.25rem;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.55rem}
+.car-specs li {background:#eef5ff;padding:.55rem .8rem;border-radius:9px;font-size:.78rem;color:var(--charcoal);display:flex;align-items:center;gap:.4rem;line-height:1.2}
+.badge-list {display:flex;flex-wrap:wrap;gap:.4rem;margin:.1rem 0 1.25rem}
+.badge {background:#e7f3ff;color:var(--primary-blue);padding:.4rem .85rem;border-radius:16px;font-size:.72rem;font-weight:500}
+.rental-terms {background:var(--light-gray);padding:1.15rem 1.2rem;border-radius:14px;margin:0 0 1.25rem}
+.rental-terms-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;margin-bottom:.65rem;font-size:.8rem}
+@media (max-width:600px){.rental-terms-grid{grid-template-columns:1fr}}
+.rental-terms p {color:var(--dark-gray);font-size:.75rem;margin:0}
+.actions-main,.actions-secondary {display:flex;gap:.85rem;flex-wrap:wrap}
+.actions-main {margin:.3rem 0 .6rem}
+.btn-primary,.btn-secondary-line {flex:1;min-width:190px;padding:.9rem 1.15rem;border-radius:11px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.25s;border:2px solid transparent;display:flex;justify-content:center;align-items:center;text-align:center}
+.btn-primary {background:var(--warm-orange);color:var(--white);border-color:var(--warm-orange)}
+.btn-primary:hover {background:#d94e1f}
+.btn-secondary-line {background:var(--white);color:var(--primary-blue);border-color:var(--primary-blue)}
+.btn-secondary-line:hover {background:var(--primary-blue);color:var(--white)}
+.back-link-btn {background:var(--white);color:var(--charcoal);border:2px solid var(--border-gray)}
+.back-link-btn:hover {background:var(--light-gray)}
+.share-btn {background:var(--white);color:var(--primary-blue);border:2px solid var(--primary-blue)}
+.share-btn:hover {background:var(--primary-blue);color:var(--white)}
+.similar-section {margin-top:3.5rem}
+.similar-section h2 {text-align:center;margin-bottom:1.6rem;color:var(--charcoal);font-size:1.9rem;font-weight:700}
+.similar-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.35rem}
+.similar-card {background:var(--white);border-radius:16px;box-shadow:0 5px 15px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column;transition:.3s}
+.similar-card:hover {transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.15)}
+.similar-card img {width:100%;height:150px;object-fit:cover}
+.similar-card-content {padding:.85rem .9rem 1.1rem;display:flex;flex-direction:column;gap:.35rem}
+.similar-card-title {font-size:1rem;font-weight:600;color:var(--charcoal);margin:0}
+.similar-card-meta {font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:var(--dark-gray)}
+.similar-card-price {font-size:.9rem;font-weight:700;color:var(--primary-blue);margin-top:.25rem}
+.similar-card-btn {margin-top:.35rem;padding:.55rem .85rem;font-size:.7rem;background:var(--warm-orange);color:var(--white);border:none;border-radius:8px;cursor:pointer;transition:.3s;text-decoration:none;text-align:center;font-weight:600}
+.similar-card-btn:hover {background:#d94e1f}
+.empty-state {padding:3rem 0;text-align:center;color:var(--dark-gray)}

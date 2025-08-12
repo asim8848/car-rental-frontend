@@ -1,0 +1,133 @@
+/* Footer Styles - redesigned */
+.footer {
+  background: #1f2122;
+  color: var(--white);
+  padding: 4rem 0 2rem 0;
+  margin-top: auto;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Brand intro (first column) */
+.brandName {
+  text-align: center;
+  color: #ff6b35;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.brandDescription {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 1rem auto;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.9;
+}
+
+.brandContacts {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: center;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.contactLine {
+  font-size: 1.05rem;
+}
+
+/* Column Titles */
+.sectionTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: #ff6b35;
+  text-align: center;
+}
+
+/* Links */
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: 0.75rem;
+}
+
+.footerLink {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+}
+
+.footerLink:hover {
+  color: #ff6b35;
+}
+
+/* Removed old contact card styles in favor of centered brand info */
+
+/* Divider and bottom */
+.footerDivider {
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 2rem 0 1.5rem 0;
+}
+
+.footerBottomCentered {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .footer {
+  padding: 3rem 0 1.5rem 0;
+  }
+
+  .footerContent {
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  margin-bottom: 2rem;
+  }
+
+  .footerSection {
+    text-align: center;
+  }
+
+  .socialLinks {
+    justify-content: center;
+  }
+
+  .footerBottomCentered {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet Responsive */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .footerContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 1200px) {
+  .footerContent {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}

@@ -1,0 +1,271 @@
+/* Car Card Styles */
+.carCard {
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.carCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Image Container */
+.imageContainer {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.carImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carCard:hover .carImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.8), rgba(44, 62, 80, 0.8));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.viewDetails {
+  color: var(--white);
+  font-weight: 600;
+  font-size: var(--font-size-large);
+  text-align: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 2px solid var(--white);
+  border-radius: var(--border-radius-md);
+  transition: all 0.3s ease;
+}
+
+.viewDetails:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+/* Card Content */
+.cardContent {
+  padding: var(--spacing-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.carHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-sm);
+  gap: var(--spacing-sm);
+}
+
+.carName {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.carType {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.carModel {
+  color: var(--secondary-color);
+  font-size: var(--font-size-base);
+  margin: 0 0 var(--spacing-lg) 0;
+  opacity: 0.8;
+}
+
+/* Car Features */
+.carFeatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-small);
+  color: var(--secondary-color);
+}
+
+.featureIcon {
+  font-size: var(--font-size-base);
+  opacity: 0.7;
+}
+
+.featureText {
+  font-weight: 500;
+}
+
+/* Card Footer */
+.cardFooter {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--light-color);
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-xs);
+}
+
+.price {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.priceUnit {
+  font-size: var(--font-size-small);
+  color: var(--secondary-color);
+  opacity: 0.7;
+}
+
+/* Add to Cart Button */
+.addToCartBtn {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  font-size: var(--font-size-small);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.addToCartBtn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.addToCartBtn.inCart {
+  background-color: var(--success-color);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.addToCartBtn.inCart:hover {
+  background-color: var(--success-color);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .carFeatures {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+
+  .cardContent {
+    padding: var(--spacing-md);
+  }
+
+  .carHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+
+  .carType {
+    align-self: flex-start;
+  }
+
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .addToCartBtn {
+    width: 100%;
+    padding: var(--spacing-md);
+  }
+
+  .carName {
+    font-size: var(--font-size-large);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .imageContainer {
+    height: 160px;
+  }
+
+  .cardContent {
+    padding: var(--spacing-sm);
+  }
+
+  .price {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Animation for loading state */
+.carCard.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
