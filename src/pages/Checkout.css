@@ -24,8 +24,8 @@
 .breadcrumb {margin:2rem 0;color:var(--dark-gray);font-size:.9rem}
 .breadcrumb a {color:var(--warm-orange);text-decoration:none;transition:var(--transition-standard)}
 .breadcrumb a:hover {color:var(--primary-blue)}
-.checkout-container {display:grid;grid-template-columns:1fr 400px;gap:3rem;align-items:start}
-.form-container {background:var(--white);border-radius:16px;box-shadow:var(--box-shadow-standard);padding:2.5rem}
+.checkout-container {display:grid;grid-template-columns:1.4fr 380px;gap:3.2rem;align-items:start}
+.form-container {background:var(--white);border-radius:18px;box-shadow:var(--box-shadow-standard);padding:3rem}
 .form-header h2 {color:var(--charcoal);font-size:2rem;font-weight:700;margin:0 0 .5rem}
 .section-title {margin:2rem 0 1rem;color:var(--warm-orange);font-size:1.3rem;font-weight:600;position:relative;padding-left:15px}
 .section-title::before {content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:20px;background-color:var(--warm-orange);border-radius:3px}
@@ -47,7 +47,7 @@ textarea.form-control {resize:vertical;min-height:100px}
 .btn-complete:hover span {transform:translateX(5px)}
 .btn-secondary {display:block;width:100%;margin:.75rem 0 1.5rem;padding:.6rem 1rem;font-size:.95rem;font-weight:500;color:var(--dark-gray);background:var(--light-gray);border:1px solid var(--border-gray);border-radius:6px;cursor:pointer;transition:var(--transition-standard);text-align:center}
 .btn-secondary:hover {background:var(--lighter-gray);color:var(--charcoal)}
-.booking-summary {background:var(--white);padding:2rem;border-radius:16px;box-shadow:var(--box-shadow-standard);height:fit-content;position:sticky;top:100px}
+.booking-summary {background:var(--white);padding:2rem;border-radius:18px;box-shadow:var(--box-shadow-standard);height:fit-content;position:sticky;top:92px}
 .summary-header h3 {color:var(--charcoal);font-size:1.5rem;font-weight:700;margin:0 0 .5rem}
 .car-info {border-bottom:1px solid var(--border-gray);padding-bottom:1rem;margin-bottom:1.5rem}
 .car-info h4 {color:var(--primary-blue);margin:0 0 .5rem;font-size:1.2rem}

@@ -1,15 +1,16 @@
 /* Navbar Styles */
 .navbar {
-  background-color: var(--white);
-  box-shadow: var(--shadow-md);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 80px;
+  height: 80px; /* slightly taller */
   display: flex;
   align-items: center;
+  background: #ffffff; /* solid white */
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
 }
 
 .navContainer {
@@ -18,7 +19,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--spacing-lg);
   width: 100%;
 }
 
@@ -30,7 +31,7 @@
 }
 
 .logoImage {
-  height: 40px;
+  height: 42px;
   width: auto;
   object-fit: contain;
 }
@@ -40,7 +41,7 @@
   display: flex;
   list-style: none;
   align-items: center;
-  gap: var(--spacing-xl);
+  gap: clamp(16px, 4vw, 28px);
   margin: 0;
   padding: 0;
 }
@@ -50,37 +51,34 @@
 }
 
 .navLink {
-  color: var(--dark-color);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: var(--font-size-base);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--border-radius-md);
-  transition: all 0.3s ease;
   position: relative;
-}
-
-.navLink:hover {
-  color: var(--primary-color);
-  background-color: rgba(255, 107, 53, 0.1);
-}
-
-.navLink.active {
-  color: var(--primary-color);
+  color: #1a2b3b;
+  text-decoration: none;
   font-weight: 600;
+  letter-spacing: 0.2px;
+  font-size: 0.98rem;
+  padding: 10px 12px;
+  transition: color .25s ease;
 }
 
-.navLink.active::after {
+.navLink::after {
   content: '';
   position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
   height: 2px;
-  background-color: var(--primary-color);
+  background: #0066CC; /* unified primary blue */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
   border-radius: 2px;
 }
+.navLink:hover { color: #0066CC; }
+.navLink:hover::after { transform: scaleX(1); }
+
+.navLink.active { color: #0066CC; }
+.navLink.active::after { transform: scaleX(1); }
 
 /* Login Button Special Styling */
 .loginBtn {
@@ -111,34 +109,73 @@
 .navActions {
   display: none;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: 10px;
 }
 
+/* Unified button system for navbar (matches app style) */
 .navBtn {
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border: 2px solid var(--primary-color);
-  background: transparent;
-  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1.5px solid #e5e7eb;
+  background: #ffffff;
+  color: #1f2937;
   text-decoration: none;
-  border-radius: 999px;
+  border-radius: 999px; /* pill */
   font-weight: 600;
-  font-size: var(--font-size-base);
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: none; /* remove borders */
+  position: relative; /* for badge positioning */
 }
 
 .navBtn:hover {
-  background: rgba(255, 107, 53, 0.1);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
 }
 
 .navBtnPrimary {
-  background: var(--primary-color);
-  color: var(--white);
-  border-color: var(--primary-color);
+  border-color: transparent;
+  background: linear-gradient(135deg, #0066CC, #00499e);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.28);
 }
 
 .navBtnPrimary:hover {
-  background: #e55a2b;
+  filter: brightness(1.02);
+  box-shadow: 0 10px 22px rgba(0, 102, 204, 0.32);
+}
+
+.navBtn svg { width: 16px; height: 16px; }
+
+/* Small count badge for cart */
+.navBadge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #0066CC;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px #ffffff; /* ring to separate from background */
+}
+
+.navIconWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; /* reserve some width so badge doesn't overlap text */
+  height: 22px;
+  margin-right: 6px; /* spacing before label */
 }
 
 /* Mobile Menu Toggle */
@@ -153,16 +190,14 @@
 .bar {
   width: 25px;
   height: 3px;
-  background-color: var(--dark-color);
+  background-color: #1a1a1a;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
-  .navContainer {
-    padding: 0 var(--spacing-sm);
-  }
+  .navContainer { padding: 0 var(--spacing-md); }
 
   .navToggle {
     display: flex;
@@ -171,7 +206,7 @@
   .navMenu {
     position: fixed;
     left: -100%;
-    top: 80px;
+  top: 80px; /* match navbar height */
     flex-direction: column;
     background-color: var(--white);
     width: 100%;
@@ -179,7 +214,7 @@
     transition: all 0.3s ease;
     box-shadow: var(--shadow-lg);
     padding: var(--spacing-lg) 0;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
   }
 
   .navMenu.active {
@@ -190,22 +225,14 @@
     width: 100%;
   }
 
-  .navLink {
-    padding: var(--spacing-md);
-    display: block;
-    width: 100%;
-    border-radius: 0;
-  }
+  .navLink { padding: var(--spacing-md); width: 100%; display: block; }
+  .navLink::after { display: none; }
 
   .navLink.active::after {
     display: none;
   }
 
-  .loginBtn {
-    margin: var(--spacing-sm) var(--spacing-md);
-    width: calc(100% - var(--spacing-xl));
-    border-radius: var(--border-radius-md);
-  }
+  .loginBtn { margin: var(--spacing-sm) var(--spacing-md); width: calc(100% - var(--spacing-xl)); }
 
   /* Mobile menu toggle animation */
   .navToggle.active .bar:nth-child(1) {
@@ -261,7 +288,7 @@
     width: 85%;
     max-width: 320px;
     height: 100vh;
-    background: var(--white);
+  background: linear-gradient(180deg, #ffffff, #fafafa);
     z-index: 1001;
     box-shadow: -5px 0 25px rgba(0,0,0,0.15);
     transition: right 0.3s ease;
@@ -298,31 +325,30 @@
     padding: var(--spacing-lg) var(--spacing-md);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: 6px;
   }
 
   .mobileNavLinks a {
     display: block;
-    padding: var(--spacing-md);
+    padding: 14px var(--spacing-md);
     text-decoration: none;
     color: var(--dark-color);
     border-radius: var(--border-radius-md);
+    font-weight: 600;
   }
 
-  .mobileNavLinks a:hover {
-    background: rgba(0,0,0,0.05);
-  }
+  .mobileNavLinks a:hover { background: rgba(0,0,0,0.05); }
 
   .mobileNavActions {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: 10px;
     padding: var(--spacing-md);
     border-top: 1px solid rgba(0,0,0,0.08);
   }
+
+  .mobileNavActions .navBtn { justify-content: center; }
 }
 
 /* Show actions on desktop */
-@media (min-width: 769px) {
-  .navActions { display: flex; }
-}
+@media (min-width: 769px) { .navActions { display: flex; } }

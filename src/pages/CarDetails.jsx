@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { carService } from '../services/apiService';
+import { useCart } from '../context/CartContext';
 import { toast } from 'react-toastify';
 import './CarDetails.css';
 
@@ -25,6 +26,7 @@ const CarDetails = () => {
 	const [allCars, setAllCars] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const { addToCart } = useCart();
 
 	const similar = useMemo(() => 
 		car && allCars.length ? getSimilarCars(allCars, car._id, car.category) : [], 
@@ -65,13 +67,23 @@ const CarDetails = () => {
 		navigate('/checkout', { state: { carId: car?._id } });
 	};
 
-	const handleAddToCart = () => {
+		const handleAddToCart = async () => {
 		// simple localStorage cart placeholder
-		if (!car) return;
-		const cart = JSON.parse(localStorage.getItem('rentacar_cart') || '[]');
-		if (!cart.find(item => item.id === car._id)) cart.push({ id: car._id, qty: 1 });
-		localStorage.setItem('rentacar_cart', JSON.stringify(cart));
-		alert('Added to cart');
+			if (!car) return;
+			if (car?.available === false) { toast.info('This car is currently unavailable'); return; }
+			try {
+				const start = new Date();
+				const end = new Date(); end.setDate(start.getDate() + 1);
+				await addToCart({
+					carId: car._id,
+					startDate: start.toISOString(),
+					endDate: end.toISOString(),
+					days: 1,
+				});
+				toast.success('Added to cart');
+			} catch (e) {
+				toast.error('Failed to add to cart');
+			}
 	};
 
 	const handleShare = async () => {
@@ -108,6 +120,12 @@ const CarDetails = () => {
 
 	return (
 		<main>
+			<style>{`
+			.car-details-container.unavailable { filter: grayscale(100%); opacity: 0.9; }
+			.car-details-container.unavailable .car-details-price { color: #6b7280; }
+			.car-details-image { position: relative; }
+			.car-unavailable-badge { position: absolute; top: 10px; left: 10px; background: rgba(17,24,39,0.85); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 6px 10px; border-radius: 999px; }
+			`}</style>
 			<div className="container">
 				<nav className="car-breadcrumb">
 					<span>
@@ -115,14 +133,17 @@ const CarDetails = () => {
 					</span>
 				</nav>
 
-				<div className="car-details-container">
+				<div className={`car-details-container ${car?.available === false ? 'unavailable' : ''}`}>
 					<div className="car-details-image">
-						<img 
+							<img 
 							src={`/images/${car.image}`} 
 							alt={`${car.brand} ${car.model}`}
 							onError={(e) => { e.currentTarget.src = '/images/placeholder.png' }}
 							style={{ width: '100%', height: '100%', objectFit: 'cover' }}
 						/>
+							{car?.available === false && (
+								<span className="car-unavailable-badge">Unavailable</span>
+							)}
 					</div>
 					<div className="car-details-info">
 						<h1 className="car-details-title">{car.brand} {car.model}</h1>
@@ -159,7 +180,9 @@ const CarDetails = () => {
 
 										<div className="actions-main">
 											<button className="btn-primary" onClick={handleRentNow}>Rent Now - Reserve This Car</button>
-											<button className="btn-secondary-line" onClick={handleAddToCart}>Add to Cart</button>
+											<button className="btn-secondary-line" onClick={handleAddToCart} disabled={car?.available === false}>
+												{car?.available === false ? 'Unavailable' : 'Add to Cart'}
+											</button>
 										</div>
 										<div className="actions-secondary">
 											<Link to="/cars" className="btn-secondary-line back-link-btn">← Back to Cars</Link>

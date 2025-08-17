@@ -3,7 +3,8 @@
 React-based frontend for the Car Rental System built with modern web technologies.
 
 ## 🚀 Live Demo
-**Frontend URL:** [https://car-rental-frontend-asim.netlify.app](https://car-rental-frontend-asim.netlify.app)
+**Frontend URL:** https://car-rental-frontend-asim.netlify.app
+**Backend API:** https://car-rental-backend-production-fc28.up.railway.app/api
 
 ## 📋 Features
 - **Modern React Interface** - Built with React 18 and hooks
@@ -68,8 +69,9 @@ The application is fully responsive and optimized for:
 - Desktop computers (1024px+)
 
 ## 🔗 Backend Repository
-[Link to backend repository]
+https://github.com/asim8848/car-rental-backend
 
 ---
 **Course**: CMP7246 Web Application Development  
-**Academic Year**: 2024-25
+**Student**: Muhammad Asim (ID: 25109182)  
+**Academic Year**: 25/26

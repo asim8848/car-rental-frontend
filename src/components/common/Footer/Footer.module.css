@@ -77,6 +77,21 @@
   color: #ff6b35;
 }
 
+/* Button variant to keep a11y without href="#" while matching link look */
+.footerLinkBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.footerLinkBtn:hover {
+  color: #ff6b35;
+}
+
 /* Removed old contact card styles in favor of centered brand info */
 
 /* Divider and bottom */

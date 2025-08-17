@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { carService } from '../services/apiService'
+import { useCart } from '../context/CartContext'
+import { toast } from 'react-toastify'
 
 export default function Cars() {
   const navigate = useNavigate()
+  const { addToCart } = useCart()
   const [cars, setCars] = useState([])
   const [filteredCars, setFilteredCars] = useState([])
   const [loading, setLoading] = useState(true)
@@ -104,10 +107,26 @@ export default function Cars() {
     setIsFiltersOpen(false)
   }
 
-  const handleAddToCart = (car) => {
-    localStorage.setItem('selectedCarId', car._id)
-    localStorage.setItem('selectedCarData', JSON.stringify(car))
-    navigate('/checkout')
+  const handleAddToCart = async (car) => {
+    try {
+      if (car?.available === false) {
+        toast.info('This car is currently unavailable');
+        return;
+      }
+      // Default 1-day rental today->tomorrow; user can adjust in Cart page
+      const start = new Date();
+      const end = new Date(); end.setDate(start.getDate() + 1);
+      await addToCart({
+        carId: car._id,
+        startDate: start.toISOString(),
+        endDate: end.toISOString(),
+        days: 1,
+      })
+      toast.success('Added to cart')
+      // stay on page; cart badge updates via context
+    } catch (err) {
+      toast.error(err?.message || 'Failed to add to cart')
+    }
   }
 
   const handleViewDetails = (carId) => {
@@ -556,6 +575,36 @@ export default function Cars() {
           background-color: #d63916;
         }
 
+        /* Unavailable state */
+        .car-card.unavailable {
+          filter: grayscale(100%);
+          opacity: 0.9;
+        }
+        .car-card.unavailable:hover {
+          transform: none;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+          border-color: rgba(0,0,0,0.05);
+        }
+        .car-card.unavailable .car-price {
+          color: #6b7280; /* gray */
+        }
+        .car-card.unavailable .car-actions .btn {
+          opacity: 0.7;
+          cursor: not-allowed;
+          pointer-events: none;
+        }
+        .car-unavailable-badge {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          background: rgba(17,24,39,0.85);
+          color: #fff;
+          font-size: 0.75rem;
+          font-weight: 700;
+          padding: 6px 10px;
+          border-radius: 999px;
+        }
+
         /* Mobile Responsive */
         @media screen and (max-width: 768px) {
           .cars-container {
@@ -739,13 +788,16 @@ export default function Cars() {
             
             <div className="cars-grid">
               {filteredCars.map((car) => (
-                <div key={car._id} className="car-card" data-car-id={car._id} data-category={car.category}>
+                <div key={car._id} className={`car-card ${car.available === false ? 'unavailable' : ''}`} data-car-id={car._id} data-category={car.category}>
                   <div className="car-image">
                     <img 
                       src={getImagePath(car.image)} 
                       alt={`${car.brand} ${car.model}`}
                       onError={(e) => {e.target.src = '/images/placeholder.png'}}
                     />
+                    {car.available === false && (
+                      <span className="car-unavailable-badge">Unavailable</span>
+                    )}
                   </div>
                   <div className="car-info">
                     <h3 className="car-name">{car.brand} {car.model}</h3>
@@ -768,8 +820,9 @@ export default function Cars() {
                       <button 
                         className="btn" 
                         onClick={() => handleAddToCart(car)}
+                        disabled={car.available === false}
                       >
-                        Add to Cart
+                        {car.available === false ? 'Unavailable' : 'Add to Cart'}
                       </button>
                     </div>
                   </div>

@@ -1,4 +1,4 @@
-/* Home Page Styles - Exact D1 Replica (customized hero typography + CTA button) */
+/* Home Page Styles */
 
 /* Import display font for hero */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap');
@@ -25,7 +25,7 @@
     background-color: var(--cream);
 }
 
-/* Hero Section - Exact D1 Replica */
+/* Hero Section */
 .hero {
     position: relative;
     height: 100vh;
@@ -220,7 +220,7 @@
     box-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
-/* Services Overview Section - Exact D1 Replica */
+/* Services Overview Section */
 .servicesOverview {
     padding: 5rem 0;
     background: linear-gradient(135deg, var(--white) 0%, var(--cream) 100%);
@@ -306,7 +306,7 @@
     opacity: 0.8;
 }
 
-/* Featured Cars Section - Exact D1 Replica */
+/* Featured Cars Section */
 .section {
     padding: 5rem 0;
 }
@@ -563,7 +563,7 @@
     transform: translateX(5px);
 }
 
-/* Enhanced Statistics Section - Exact D1 Replica */
+/* Enhanced Statistics Section */
 .statsSection {
     background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-gray) 100%);
     color: var(--white);

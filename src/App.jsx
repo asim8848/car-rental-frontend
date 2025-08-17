@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { AuthProvider } from './context/AuthContext';
+import { CartProvider } from './context/CartContext';
 import Navbar from './components/common/Navbar/Navbar';
 import Footer from './components/common/Footer/Footer';
 import Home from './pages/Home/Home';
@@ -11,12 +12,17 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Checkout from './pages/Checkout';
 import CarDetails from './pages/CarDetails';
+import Cart from './pages/Cart';
+import Payment from './pages/Payment';
+import Orders from './pages/Orders';
+import ChangePassword from './pages/ChangePassword';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 function App() {
   return (
     <AuthProvider>
+      <CartProvider>
       <div className="app-container">
         <Router>
           <Navbar />
@@ -27,6 +33,10 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/car-details/:carId" element={<CarDetails />} />
             <Route path="/car-details" element={
@@ -54,6 +64,7 @@ function App() {
         />
       </Router>
     </div>
+      </CartProvider>
     </AuthProvider>
   );
 }

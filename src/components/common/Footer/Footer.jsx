@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -39,11 +40,11 @@ const Footer = () => {
           <div className={styles.footerSection}>
             <h3 className={styles.sectionTitle}>Services</h3>
             <ul className={styles.linkList}>
-              <li><a href="#" className={styles.footerLink}>Economy Cars</a></li>
-              <li><a href="#" className={styles.footerLink}>Luxury Vehicles</a></li>
-              <li><a href="#" className={styles.footerLink}>SUVs & Trucks</a></li>
-              <li><a href="#" className={styles.footerLink}>Electric Cars</a></li>
-              <li><a href="#" className={styles.footerLink}>Long-term Rental</a></li>
+              <li><Link to="/cars" className={styles.footerLink}>Economy Cars</Link></li>
+              <li><Link to="/cars" className={styles.footerLink}>Luxury Vehicles</Link></li>
+              <li><Link to="/cars" className={styles.footerLink}>SUVs & Trucks</Link></li>
+              <li><Link to="/cars" className={styles.footerLink}>Electric Cars</Link></li>
+              <li><Link to="/cars" className={styles.footerLink}>Long-term Rental</Link></li>
             </ul>
           </div>
 
@@ -51,11 +52,31 @@ const Footer = () => {
           <div className={styles.footerSection}>
             <h3 className={styles.sectionTitle}>Support</h3>
             <ul className={styles.linkList}>
-              <li><a href="#" className={styles.footerLink}>Help Center</a></li>
-              <li><a href="#" className={styles.footerLink}>Terms of Service</a></li>
-              <li><a href="#" className={styles.footerLink}>Privacy Policy</a></li>
-              <li><a href="#" className={styles.footerLink}>Insurance Info</a></li>
-              <li><a href="#" className={styles.footerLink}>24/7 Support</a></li>
+              <li>
+                <button type="button" className={styles.footerLinkBtn} onClick={() => toast.info('Help Center coming soon')}>
+                  Help Center
+                </button>
+              </li>
+              <li>
+                <button type="button" className={styles.footerLinkBtn} onClick={() => toast.info('Terms of Service coming soon')}>
+                  Terms of Service
+                </button>
+              </li>
+              <li>
+                <button type="button" className={styles.footerLinkBtn} onClick={() => toast.info('Privacy Policy coming soon')}>
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button type="button" className={styles.footerLinkBtn} onClick={() => toast.info('Insurance information coming soon')}>
+                  Insurance Info
+                </button>
+              </li>
+              <li>
+                <button type="button" className={styles.footerLinkBtn} onClick={() => toast.info('24/7 Support coming soon')}>
+                  24/7 Support
+                </button>
+              </li>
             </ul>
           </div>
         </div>

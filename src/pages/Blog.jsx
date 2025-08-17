@@ -156,7 +156,7 @@ const Blog = () => {
 								<div className="category-icon">{c.icon}</div>
 								<h3 className="category-title">{c.title}</h3>
 								<p className="category-desc">{c.desc}</p>
-								<a href="#" className="btn-category">Explore</a>
+								<button type="button" className="btn-category" onClick={() => alert(`Explore ${c.title} coming soon`)}>Explore</button>
 							</div>
 						))}
 					</div>

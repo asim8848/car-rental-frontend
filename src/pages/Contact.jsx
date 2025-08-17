@@ -103,10 +103,10 @@ const Contact = () => {
 							<div className="social-links">
 								<h3>Connect With Us</h3>
 								<div className="social-icons">
-									<a href="#" className="social-icon icon-facebook">📘</a>
-									<a href="#" className="social-icon icon-twitter">🐦</a>
-									<a href="#" className="social-icon icon-instagram">📷</a>
-									<a href="#" className="social-icon icon-linkedin">💼</a>
+									<button type="button" className="social-icon icon-facebook" onClick={() => alert('Facebook coming soon')} aria-label="Facebook">📘</button>
+									<button type="button" className="social-icon icon-twitter" onClick={() => alert('Twitter coming soon')} aria-label="Twitter">🐦</button>
+									<button type="button" className="social-icon icon-instagram" onClick={() => alert('Instagram coming soon')} aria-label="Instagram">📷</button>
+									<button type="button" className="social-icon icon-linkedin" onClick={() => alert('LinkedIn coming soon')} aria-label="LinkedIn">💼</button>
 								</div>
 								<p className="social-text">Follow us on social media for updates, promotions, and travel tips!</p>
 							</div>
@@ -181,7 +181,7 @@ const Contact = () => {
 									<input type="checkbox" id="newsletter-signup" name="newsletter" />
 									<label htmlFor="newsletter-signup">Subscribe to our newsletter for exclusive deals and updates</label>
 								</div>
-								<button type="submit" className="btn-submit">Send Message <span>→</span></button>
+								<button type="submit" className="btn btn-primary btn-lg">Send Message <span>→</span></button>
 								<p className="form-footnote">We typically respond within 24 hours. For urgent matters, please call us directly.</p>
 							</form>
 						</div>

@@ -118,9 +118,9 @@ const Login = () => {
 											<input type="checkbox" id="remember-me" name="remember" />
 											<label htmlFor="remember-me">Remember me</label>
 										</div>
-										<a href="#" className="forgot-password">Forgot Password?</a>
+										<button type="button" className="forgot-password" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }} onClick={() => toast.info('Password reset coming soon')}>Forgot Password?</button>
 									</div>
-									<button type="submit" className="btn-submit" disabled={loading}>
+									<button type="submit" className="btn btn-primary btn-lg" disabled={loading}>
 										{loading ? 'Signing In...' : 'Sign In'} <span>→</span>
 									</button>
 									<div className="auth-divider"><span>Or continue with</span></div>
@@ -201,13 +201,13 @@ const Login = () => {
 									</div>
 									<div className="form-checkbox">
 										<input type="checkbox" id="terms-signup" name="terms" required />
-										<label htmlFor="terms-signup">I agree to the <a href="#" className="forgot-password">Terms of Service</a> and <a href="#" className="forgot-password">Privacy Policy</a></label>
+										<label htmlFor="terms-signup">I agree to the <button type="button" className="forgot-password" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }} onClick={() => toast.info('Terms coming soon')}>Terms of Service</button> and <button type="button" className="forgot-password" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }} onClick={() => toast.info('Privacy Policy coming soon')}>Privacy Policy</button></label>
 									</div>
 									<div className="form-checkbox">
 										<input type="checkbox" id="newsletter" name="newsletter" />
 										<label htmlFor="newsletter">Subscribe to newsletter for exclusive deals and updates</label>
 									</div>
-									<button type="submit" className="btn-submit" disabled={loading || (password && confirm && password !== confirm)}>
+									<button type="submit" className="btn btn-primary btn-lg" disabled={loading || (password && confirm && password !== confirm)}>
 										{loading ? 'Creating Account...' : 'Create Account'} <span>→</span>
 									</button>
 									<div className="auth-divider"><span>Or sign up with</span></div>
